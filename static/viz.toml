@@ -1,0 +1,30 @@
+
+[features]
+join_id = "_DF_ID"
+data_features = ['TotPop90', 'PctRural', 'PctBach', 'PctEld', 'PctFB', 'PctPov', 'PctBlack']
+geo_features = ['X', 'Y']
+
+[som_params]
+epochs = 3000
+random_state = 0
+learning_rate = 0.7
+initialization = 'random'
+topology = 'hexagonal'
+neighborhood_function = 'gaussian'
+m = 9
+n = 12
+
+[viz_params]
+[viz_params.spots_mapper]
+0 = "NS",
+1 = "HH",
+2 = "LH",
+3 = "LL",
+4 = "HL",
+
+[viz_params.hilo_cmap]
+LH = "#a6cee3"
+LL = "#1f78b4"
+HH = "#d93b43"
+HL = "#e08d49"
+NS = "#eaeaea"

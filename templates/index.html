@@ -1,0 +1,68 @@
+{% extends base %}
+
+{% block title %}
+Interactive SOM
+{% endblock %}
+{% block preamble %}
+<link href="/bokeh_ga/static/styles.css" rel="stylesheet">
+{% endblock %}
+{% block postamble %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+
+{% endblock %}
+
+{% block contents %}
+
+<div class="page_wrapper">
+    <div class="header_wrapper">
+        <h1>{{ title }}</h1>
+        <div class="gh_link">
+            <a href="https://github.com/fpontejos/sombr-thesis" 
+                target="_blank"
+                title="GitHub Repository"
+                >
+                <img src="/bokeh_ga/static/github-mark.png">
+            </a> 
+        </div>
+    </div>
+    <div class="selection_wrapper">
+        <div class="selection_item">
+            {{ embed(roots.som_btns) }}
+            
+        </div>
+        <div class="selection_item">
+            <!-- embed(roots.to_dropdown)  -->
+            {{ embed(roots.geo_btns) }} 
+
+        </div>
+        <div class="selection_item">
+            {{ embed(roots.radio_opts) }} 
+        </div>
+        <div class="selection_item">
+        </div>
+
+    </div>
+    <div class="main_wrapper">
+        <div class="main_item"> {{ embed(roots.som_plot) }} </div>
+        <div class="main_item"> {{ embed(roots.colorbar_plot) }} </div>
+        <div class="main_item"> {{ embed(roots.geo_plot) }} </div>
+        <div class="main_item"> {{ embed(roots.scatter_plot) }} </div>
+        <div class="main_item">
+            <div>
+                 
+            </div>
+            <div>
+                {{ embed(roots.box_plot) }} 
+            </div>
+            </div>
+    </div>
+
+</div>
+
+    {# super() #}
+
+
+{% endblock %}
+
