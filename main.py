@@ -1,13 +1,15 @@
 import argparse
 
+import geopandas as gp
+import libpysal as ps
 from bokeh.io import curdoc
-from bokeh.models import Select
 from constants import *
 from modules.callbacks.js_callbacks import *
 from modules.clustering import *
 from modules.setup import *
 from modules.statistics import *
 from modules.visualization import *
+from sklearn.preprocessing import StandardScaler
 
 parser = argparse.ArgumentParser()
 parser = setup_parser(parser)
@@ -41,6 +43,8 @@ def get_data(
     gp_df[features_scaled] = st_scaler.fit_transform(gp_df[features])
     # End scaling
 
+    # print(gp_df.columns)
+
     return gp_df
 
 
@@ -49,6 +53,7 @@ gp_df = get_data()
 gp_df, som_gp, som_cds = get_som_cds(gp_df, features)
 
 gp_df, feats, geo_cds, lags_df, details = get_statistics_df(gp_df, use_precalc=True)
+print(gp_df.columns)
 
 features_scaled = ["{}{}".format(i, feats["suf"]["scaled"]) for i in features]
 feats_yx = [feats["y"]] + feats["x"]

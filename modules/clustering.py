@@ -115,7 +115,7 @@ def get_som_cds(df, features_orig):
     radius_multiplier = 0.3
     som_cp = {}
     for i in range(len(features)):
-        som_cp[features_orig[i]] = som_gp.get_weights()[:, :, i]
+        som_cp[features_orig[i]] = som_gp.get_weights()[:, :, i].reshape(m * n) * size
     som_cds = ColumnDataSource(
         dict(
             x=x2,

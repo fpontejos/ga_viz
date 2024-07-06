@@ -543,11 +543,16 @@ def plot_dd(
         console.log(som_cds)
         console.log(som_cmap)
         console.log(som_glyph)
+        console.log(som_feats)
         
         var xf = som_feats[som_buttons.active]
         if (som_buttons.active == 0) {
             xf = "umatrix"
         }
+
+        //console.log(xf, 'xf')
+        //console.log('som_cds.data[xf]', som_cds.data[xf])
+        //console.log('som_cds.data[_current_hex]', som_cds.data['_current_hex'])
         som_cds.data['_current_hex'] = som_cds.data[xf]
 
         splot.title.text = xf
@@ -558,7 +563,7 @@ def plot_dd(
         som_cmap.high=maxz
         
         console.log(som_glyph.glyph)
-
+        console.log(som_cds)
         som_cds.change.emit();
 
                         """,
