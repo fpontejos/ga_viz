@@ -1,33 +1,16 @@
-import datetime
 import json
-import logging
 import os
-import re
-import sqlite3
-import sys
-import time
 import warnings
-from itertools import combinations, permutations
+from itertools import permutations
 
-import geopandas as gp
-import libpysal as ps
-import matplotlib as mpl
-import matplotlib.pyplot as plt
-import numpy as np
 import pandas as pd
 from bokeh.models import GeoJSONDataSource
-from esda.moran import Moran_BV, Moran_Local_BV
-from geodatasets import get_path
+from esda.moran import Moran_Local_BV
 from mgwr.gwr import GWR, MGWR
 from mgwr.sel_bw import Sel_BW
-from mgwr.utils import shift_colormap, truncate_colormap
 from pysal.explore import esda
 from pysal.lib import weights as pysal_weights
-from scipy import stats
 from scipy.stats import linregress
-from sklearn.preprocessing import StandardScaler
-from splot.esda import moran_scatterplot
-from tqdm.notebook import tqdm, trange
 
 warnings.filterwarnings("ignore")
 
