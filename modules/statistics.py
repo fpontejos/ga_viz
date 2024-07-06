@@ -344,7 +344,7 @@ def get_statistics_df(
         with open(details_path, "w", encoding="utf-8") as f:
             json.dump(details, f, ensure_ascii=False, indent=4)
 
-    gp_df["_current_geo"] = gp_df[feats["y"] + "_std"]
+    gp_df["_current_geo"] = gp_df[feats["y"]]
     gp_df["_current_x"] = gp_df[feats["y"] + "_std"]
     gp_df["_current_y"] = gp_df[feats["y"] + "_lag_std"]
     gp_df["_ns"] = "NS"

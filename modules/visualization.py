@@ -184,8 +184,9 @@ def plot_geo(gp_df, geo_cds, geo_cmap_col, geo_palette):
         palette=geo_palette,
         # low=-1,
         # high=1,
-        low=np.min([0, gp_df[geo_cmap_col].min()]),
-        high=np.max([0, gp_df[geo_cmap_col].max()]),
+        low=-1 * np.max(np.abs([gp_df[geo_cmap_col].max(), gp_df[geo_cmap_col].min()])),
+        high=np.max(np.abs([gp_df[geo_cmap_col].max(), gp_df[geo_cmap_col].min()])),
+        # high=np.max([0, gp_df[geo_cmap_col].max()]),
     )
 
     geo_plot = figure(
